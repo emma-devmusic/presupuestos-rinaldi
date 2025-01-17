@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es" class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Presupuesto de Proyecto - Ecommerce Personalizado</title>
+    <!-- Cargar Tailwind desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideRight: {
+                "0%": { opacity: "0", transform: "translateX(-10%)" },
+                "100%": { opacity: "1", transform: "translateX(0)" },
+              },
+              slideLeft: {
+                "0%": { opacity: "0", transform: "translateX(10%)" },
+                "100%": { opacity: "1", transform: "translateX(0)" },
+              },
+              hieghter: {
+                "0%": { height: "0" },
+                "100%": { height: "250px" },
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 1.2s ease-in forwards",
+              slideRight: "slideRight 0.8s ease-in forwards",
+              slideLeft: "slideLeft 0.8s ease-in forwards",
+              hieghter: "hieghter 0.5s ease forwards",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+        h3 {
+            color: #0d9488 !important;
+        }
+    </style>
+    <!-- Metadatos para dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden overflow-y-hidden relative">
+    <!-- Fondo y elementos decorativos (opcional) -->
+    <div
+      class="fixed z-0 w-[100vw] h-[100vh] z-0 opacity-50"
+      style="background-image: url('./sky.jpg')"
+    ></div>
+    <div
+      class="parallax-layer absolute top-[2000px] sm:left-[250px] md:left-[450px] lg:left-[600px] xl:left-[900px] z-10 w-[100vw] h-[2000px] opacity-20 md:opacity-60 mx-auto"
+      style="background-image: url('./man-rocket.png'); background-repeat: no-repeat;"
+      data-speed="0.5"
+    ></div>
+    <div
+      class="parallax-layer absolute top-[4000px] sm:left-[250px] md:left-[450px] lg:left-[600px] xl:left-[900px] z-10 w-[100vw] h-[2000px] opacity-20 md:opacity-40 mx-auto"
+      style="background-image: url('./rocket.png'); background-repeat: no-repeat;"
+      data-speed="0.5"
+    ></div>
+    <div
+      class="parallax-layer absolute top-[200px] sm:left-[250px] md:left-[450px] lg:left-[600px] xl:left-[900px] z-20 w-[100vw] h-[2000px] opacity-60 md:opacity-60 mx-auto"
+      style="background-image: url('./nube-1.png'); background-repeat: no-repeat;"
+      data-speed="0.7"
+    ></div>
+    <div
+      class="parallax-layer absolute top-[400px] sm:left-[250px] md:left-[450px] lg:left-[600px] xl:left-[900px] z-20 w-[100vw] h-[2000px] opacity-60 md:opacity-60 mx-auto"
+      style="background-image: url('./nube-2.png'); background-repeat: no-repeat;"
+      data-speed="0.9"
+    ></div>
+    <div
+      class="parallax-layer absolute top-[5500px] sm:top-[4500px] sm:left-[250px] md:left-[450px] lg:left-[600px] xl:left-[900px] z-20 w-[100vw] h-[2000px] opacity-60 md:opacity-60 mx-auto"
+      style="background-image: url('./nube-1.png'); background-repeat: no-repeat;"
+      data-speed="0.4"
+    ></div>
+    <div
+      class="parallax-layer absolute top-[5200px] sm:top-[4800px] sm:left-[250px] md:left-[450px] lg:left-[600px] xl:left-[900px] z-20 w-[100vw] h-[2000px] opacity-60 md:opacity-60 mx-auto"
+      style="background-image: url('./nube-3.png'); background-repeat: no-repeat;"
+      data-speed="0.8"
+    ></div>
+    <div
+      class="parallax-layer absolute top-[6000px] sm:top-[5000px] md:top-[4500px] lg:top-[4200px] sm:left-[250px] md:left-[450px] lg:left-[600px] xl:left-[900px] z-20 w-full h-full opacity-10 md:opacity-20 mx-auto"
+      style="background-image: url('./ding.png'); background-repeat: no-repeat;"
+      data-speed="0.1"
+    ></div>
+    <!-- Fin elementos decorativos -->
+    <div class="fixed bottom-[20px] right-[10px] z-[99]">
+        <a
+            href="./"
+            class="[background:linear-gradient(144deg,rgba(65,127,255,1)_0%,rgba(105,4,255,1)_100%);] hover:[background:linear-gradient(144deg,rgba(69,59,236,1)_0%,_rgba(160,102,246,1)_100%);] text-white px-6 py-3 rounded-md shadow-md hover:opacity-80 transition-all animate-fadeIn relative z-[99]"
+        >
+            Ir Atrás
+        </a>
+    </div>
+    <!-- Contenedor principal -->
+    <div class="container mx-auto px-4 py-8 relative overflow-x-hidden z-50">
+      <!-- ENCABEZADO PRINCIPAL -->
+      <header class="text-center mb-8">
+        <!-- Logo o imagen representativa -->
+        <figure class="mb-4 text-center">
+          <img
+            src="./logo-ding.png"
+            alt="Logo de Ejemplo"
+            class="mx-auto max-h-[120px] sm:max-h-[150px] lg:max-h-[260px] object-cover w-full max-w-[280px] sm:max-w-[350px] lg:max-w-[500px] animate-fadeIn"
+          />
+        </figure>
+        <h1
+          class="text-3xl font-bold text-gray-700 uppercase mb-2 animate-slideLeft"
+        >
+          Presupuesto de Proyecto
+        </h1>
+        <h2 class="text-xl text-teal-600 font-semibold animate-slideRight">
+          Desarrollo de Ecommerce Básico Personalizado
+        </h2>
+      </header>
+
+      <hr class="border-gray-300 my-8" />
+
+      <!-- 1. DESCRIPCIÓN GENERAL DEL PROYECTO -->
+      <section class="mb-8" data-animated="fade-right">
+        <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+          1. Descripción General del Proyecto
+        </h3>
+        <p class="mb-2">
+          El objetivo principal de este proyecto es crear una plataforma de
+          comercio electrónico totalmente personalizada, que permita exhibir
+          productos en un catálogo amigable, incorporar un carrito de compras y
+          gestionar las órdenes de compra de manera eficiente.
+        </p>
+        <p>
+          Esta solución online se centrará en ofrecer a los clientes una
+          experiencia fácil y rápida para seleccionar, consultar y comprar
+          productos, dejando preparada la plataforma para una eventual
+          integración de pasarelas de pago o funcionalidades adicionales en
+          etapas futuras.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center items-center my-6 gap-4">
+            <figure class="text-center">
+              <img
+              src="./ecommerce-1.png"
+              alt="Flujo de Trabajo"
+              class="mx-auto rounded-md shadow shadow-gray-500"
+              />
+              <figcaption class="text-sm text-gray-500 italic mt-2">
+                *Imagen de ejemplo de un Ecommerce personalizado.*
+              </figcaption>
+            </figure>
+            <figure class="text-center">
+              <img
+              src="./ecommerce-2.png"
+              alt="Flujo de Trabajo"
+              class="mx-auto rounded-md shadow shadow-gray-500"
+            />
+            <figcaption class="text-sm text-gray-500 italic mt-2">
+              *Imagen de ejemplo de un Ecommerce personalizado.*
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 2. ALCANCE DEL PROYECTO -->
+      <section class="mb-8" data-animated="fade-left">
+        <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+          2. Alcance del Proyecto
+        </h3>
+
+        <!-- 2.1 Sitio Web Ecommerce -->
+        <h4 class="text-lg font-bold text-gray-700 mb-2 underline">
+          Sitio Web (Ecommerce Básico)
+        </h4>
+        <ul class="list-disc list-inside mb-4">
+          <li>
+            <strong>Catálogo de Productos:</strong> Visualización de la lista de
+            productos con detalles, precios y disponibilidad.
+          </li>
+          <li>
+            <strong>Carrito de Compras:</strong> Los clientes podrán agregar
+            productos y generar una orden de compra.
+          </li>
+          <li>
+            <strong>Gestión de Órdenes:</strong> Panel de administración para
+            revisar, confirmar, actualizar o cancelar pedidos.
+          </li>
+          <li>
+            <strong>Diseño Responsivo:</strong> Adaptación del sitio a
+            dispositivos móviles, tabletas y computadoras de escritorio.
+          </li>
+        </ul>
+
+        <!-- 2.2 Posibles Integraciones Futuras -->
+        <h4 class="text-lg font-bold text-gray-700 mb-2 underline">
+          Posibles Integraciones Futuras (No incluidas en esta etapa)
+        </h4>
+        <ul class="list-disc list-inside mb-4">
+          <li>
+            <strong>Pasarelas de Pago:</strong> Integraciones con proveedores de
+            pago online para procesar transacciones.
+          </li>
+          <li>
+            <strong>Módulo de Análisis y Reportes Avanzados:</strong> Para
+            métricas de conversión, marketing y proyección de ventas.
+          </li>
+          <li>
+            <strong>Aplicaciones Móviles:</strong> Desarrollo nativo o híbrido
+            para dispositivos iOS/Android.
+          </li>
+          <li>
+            <strong>Integraciónes:</strong> Posibilidad para escalar e implementar la administración de Stock local.
+          </li>
+        </ul>
+
+        <!-- 2.3 Exclusiones -->
+        <h4 class="text-lg font-bold text-gray-700 mb-2 underline">
+          Exclusiones (Fuera de Alcance Inicial)
+        </h4>
+        <ul class="list-disc list-inside">
+          <li>
+            <strong>Integración con Pasarelas de Pago:</strong> No se incluye la
+            configuración de métodos de pago en línea en esta fase.
+          </li>
+          <li>
+            <strong>Desarrollo de Apps Nativas:</strong> No se abarca la
+            creación de aplicaciones más allá de la compatibilidad responsiva.
+          </li>
+          <li>
+            <strong>Integraciones con Terceros:</strong> No se contemplan
+            integraciones con ERP, CRM u otros sistemas externos.
+          </li>
+        </ul>
+      </section>
+
+      <!-- 3. OBJETIVOS DEL PROYECTO -->
+      <section class="mb-8" data-animated="fade-right">
+        <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+          3. Objetivos del Proyecto
+        </h3>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>
+            <strong>Fomentar las Ventas en Línea:</strong> Brindar una tienda
+            online que simplifique la compra de productos y la recepción de
+            pedidos.
+          </li>
+          <li>
+            <strong>Mejorar la Experiencia del Cliente:</strong> Un sitio claro
+            y dinámico que permita a los usuarios navegar fácilmente por el
+            catálogo.
+          </li>
+          <li>
+            <strong>Agilizar la Gestión de Pedidos:</strong> Facilitar la
+            administración de órdenes y el contacto con el cliente.
+          </li>
+          <li>
+            <strong>Escalabilidad a Futuro:</strong> Preparar la plataforma para
+            posibles mejoras y expansiones.
+          </li>
+        </ol>
+      </section>
+
+      <!-- 4. PLAN DE TRABAJO Y METODOLOGÍA -->
+      <section class="mb-8" data-animated="fade-left">
+        <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+          4. Plan de Trabajo y Metodología
+        </h3>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>
+            <strong>Fase de Requerimientos:</strong>
+            <ul class="list-disc list-inside ml-5 space-y-1">
+              <li>
+                Reuniones iniciales para recopilar información, definir
+                funcionalidades y prioridades.
+              </li>
+              <li>
+                Documentación de requisitos funcionales y no funcionales.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Fase de Diseño:</strong>
+            <ul class="list-disc list-inside ml-5 space-y-1">
+              <li>
+                Diseño de la arquitectura (base de datos y servicios de
+                backend).
+              </li>
+              <li>Bocetos y wireframes del sitio web (estructura y estilo).</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Fase de Desarrollo:</strong>
+            <ul class="list-disc list-inside ml-5 space-y-1">
+              <li>
+                <em>Front-end:</em> Desarrollo de la interfaz de usuario (HTML,
+                CSS, JS o framework seleccionado).
+              </li>
+              <li>
+                <em>Back-end:</em> Configuración del servidor, base de datos y
+                lógica para la administración de productos y pedidos.
+              </li>
+              <li>
+                Implementación del panel de administración para gestionar
+                inventarios y órdenes.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Fase de Pruebas e Integración:</strong>
+            <ul class="list-disc list-inside ml-5 space-y-1">
+              <li>
+                Pruebas de cada módulo y verificación de la coherencia de
+                datos.
+              </li>
+              <li>Corrección de errores y optimización de rendimiento.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Fase de Implementación y Capacitación:</strong>
+            <ul class="list-disc list-inside ml-5 space-y-1">
+              <li>
+                Configuración final en el hosting y verificación de la puesta en
+                producción.
+              </li>
+              <li>
+                Capacitación al cliente para la gestión del panel
+                administrativo.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Mantenimiento y Soporte Inicial:</strong>
+            <ul class="list-disc list-inside ml-5 space-y-1">
+              <li>
+                Mantenimiento correctivo para errores detectados post-lanzamiento.
+              </li>
+              <li>
+                Ajustes menores y soporte técnico durante un periodo acordado.
+              </li>
+            </ul>
+          </li>
+        </ol>
+
+        <!-- Imagen adicional para ilustrar el flujo de trabajo (opcional) -->
+        <figure class="my-6 text-center">
+          <img
+            src="./diagrama-2.webp"
+            alt="Flujo de Trabajo"
+            class="mx-auto rounded-md shadow shadow-gray-500"
+          />
+          <figcaption class="text-sm text-gray-500 italic mt-2">
+            *Diagrama conceptual del flujo de trabajo para el desarrollo del
+            Ecommerce.*
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- 5. ENTREGABLES -->
+      <section class="mb-8" data-animated="fade-right">
+        <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+          5. Entregables
+        </h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li>
+            <strong>Documentación de Requerimientos:</strong> Ficha detallada de
+            funcionalidades y alcance.
+          </li>
+          <li>
+            <strong>Sitio Web Funcional:</strong> Plataforma Ecommerce con
+            catálogo de productos, carrito y gestión de pedidos.
+          </li>
+          <li>
+            <strong>Panel de Administración:</strong> Herramienta para
+            mantener/actualizar productos, revisar y procesar órdenes.
+          </li>
+          <li>
+            <strong>Manual de Usuario y Capacitación:</strong> Guía para usar el
+            panel de administración y el flujo general de la tienda.
+          </li>
+          <li>
+            <strong>Soporte Inicial:</strong> Corrección de fallos y ajustes
+            menores posteriores al lanzamiento.
+          </li>
+        </ul>
+      </section>
+
+      <!-- 6. CRONOGRAMA TENTATIVO -->
+      <section class="mb-8" data-animated="fade-left">
+        <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+          6. Cronograma Tentativo
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full border-collapse border border-gray-300">
+            <thead class="bg-gray-100">
+              <tr>
+                <th
+                  class="border border-gray-300 px-4 py-2 text-left font-bold"
+                >
+                  Fase
+                </th>
+                <th
+                  class="border border-gray-300 px-4 py-2 text-left font-bold"
+                >
+                  Duración Estimada
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">Requerimientos</td>
+                <td class="border border-gray-300 px-4 py-2">1 semana</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">Diseño</td>
+                <td class="border border-gray-300 px-4 py-2">1 semana</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">Desarrollo</td>
+                <td class="border border-gray-300 px-4 py-2">4 a 6 semanas</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">
+                  Pruebas e Integración
+                </td>
+                <td class="border border-gray-300 px-4 py-2">1 semanas</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">Implementación</td>
+                <td class="border border-gray-300 px-4 py-2">1 semana</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">Capacitación</td>
+                <td class="border border-gray-300 px-4 py-2">1 semana</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <th class="border border-gray-300 px-4 py-2 text-left">
+                  Total Aproximado
+                </th>
+                <th class="border border-gray-300 px-4 py-2 text-left">
+                  8 a 10 semanas
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-gray-700 mt-2">
+          *El cronograma puede variar según la disponibilidad de información,
+          revisiones y ajustes solicitados por el cliente.*
+        </p>
+      </section>
+
+      <!-- 7. PRESUPUESTO -->
+      <section class="mb-8" data-animated="fade-right">
+        <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+          7. Presupuesto
+        </h3>
+        <p class="mb-4">
+          El presupuesto estimado para el desarrollo de este Ecommerce Básico
+          personalizado se define en función de las siguientes tareas:
+        </p>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>
+            <strong>Análisis y Diseño:</strong> Documentación de requisitos y
+            creación de wireframes. <br /><em>Costo estimado: $300.000,00</em>
+          </li>
+          <li>
+            <strong>Desarrollo del Front-end:</strong> Programación de la
+            interfaz responsiva y experiencia de usuario. <br /><em
+              >Costo estimado: $500.000,00</em
+            >
+          </li>
+          <li>
+            <strong>Desarrollo del Back-end:</strong> Creación de la lógica de
+            servidor, base de datos y panel de administración.
+            <br /><em>Costo estimado: $500.000,00</em>
+          </li>
+          <li>
+            <strong>Pruebas, Implementación y Ajustes Finales:</strong> Verificación
+            de calidad, configuraciones de hosting y puesta en marcha.
+            <br /><em>Costo estimado: $200.000,00</em>
+          </li>
+          <li>
+            <strong>Capacitación y Soporte Inicial:</strong> Entrenamiento y
+            atención a incidencias en el lanzamiento.
+            <br /><em>Costo estimado: $100.000,00</em>
+          </li>
+        </ol>
+        <p class="mt-4 font-semibold">
+          Total Estimado del Proyecto: Suma de los apartados anteriores.
+        </p>
+        <p class="text-sm text-gray-700 mt-2">
+          *Los montos exactos se confirmarán tras la aprobación de la propuesta
+          y la definición detallada del alcance final. Pueden surgir ajustes o
+          costos adicionales si se agregan funcionalidades no previstas
+          inicialmente.*
+        </p>
+      </section>
+
+      <!-- 8. TÉRMINOS Y CONDICIONES -->
+      <section class="mb-8" data-animated="fade-left">
+        <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+          8. Términos y Condiciones
+        </h3>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>
+            <strong>Forma de Pago:</strong><br />
+            Se sugiere un esquema de pagos parciales:
+            <ul class="list-disc list-inside ml-5 space-y-1">
+              <li>
+                <strong>30%</strong> al inicio del proyecto (firma del contrato).
+              </li>
+              <li>
+                <strong>40%</strong> tras la finalización de la Fase de
+                Desarrollo (versión funcional).
+              </li>
+              <li>
+                <strong>30%</strong> al entregar el proyecto y efectuar la
+                aceptación final.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Propiedad Intelectual:</strong><br />
+            Todo el código y la documentación serán propiedad del cliente, a
+            menos que se especifiquen acuerdos especiales sobre librerías o
+            componentes de terceros.
+          </li>
+          <li>
+            <strong>Responsabilidades del Cliente:</strong><br />
+            Proveer la información y recursos necesarios para el desarrollo
+            (descripciones de productos, contenido, etc.) y atender solicitudes
+            de revisión de manera oportuna.
+          </li>
+          <li>
+            <strong>Garantía y Mantenimiento Inicial:</strong><br />
+            Se cubren correcciones de errores durante un período de garantía
+            (por ejemplo, 30-60 días). Cualquier nueva funcionalidad o cambio
+            mayor se considerará un alcance adicional.
+          </li>
+          <li>
+            <strong>Confidencialidad:</strong><br />
+            Toda información provista por el cliente se manejará de manera
+            confidencial y no será compartida con terceros sin autorización
+            previa.
+          </li>
+        </ol>
+      </section>
+
+      <!-- 9. CONCLUSIÓN -->
+      <section data-animated="fade-right">
+        <h3 class="text-2xl font-semibold text-gray-700 mb-4">9. Conclusión</h3>
+        <p class="mb-4">
+          El presente documento expone la propuesta para el desarrollo de un
+          Ecommerce Básico personalizado que cubra las necesidades iniciales de
+          venta en línea y administración de productos y pedidos. El enfoque
+          principal es ofrecer una plataforma sólida y escalable, capaz de
+          evolucionar en el tiempo según las demandas del mercado.
+        </p>
+        <p class="mb-6">
+          <strong>A la espera de su aprobación,</strong> quedamos disponibles
+          para resolver cualquier inquietud y realizar los ajustes necesarios,
+          de modo que la solución final satisfaga plenamente los objetivos de su
+          negocio.
+        </p>
+        <p class="text-lg">
+          <strong>Atentamente,</strong><br />
+          <div
+            class="flex items-center transition-all text-cyan-700 hover:cursor-pointer hover:text-cyan-600 gap-2 my-1"
+          >
+            <img src="./ding.png" class="h-5 w-5 object-cover" />
+            <a target="_blank" href="https://ding.com.ar" class="text-md"
+              >Ding | Marketing &amp; Development</a
+            >
+          </div>
+          <div
+            class="flex items-center transition-all text-red-400 hover:text-red-500 hover:cursor-pointer gap-2 my-1"
+          >
+            <svg
+              class="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                color="currentColor"
+              >
+                <path
+                  d="M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12 2.5c4.478 0 6.718 0 8.109 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12"
+                />
+                <path
+                  d="M16.5 12a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0m1.008-5.5h-.01"
+                />
+              </g>
+            </svg>
+            <a
+              target="_blank"
+              href="https://www.instagram.com/ding_marketing/"
+              class="text-md"
+              >instagram</a
+            >
+          </div>
+          <div
+            class="flex items-center transition-all text-gray-600 hover:text-gray-500 hover:cursor-pointer gap-2 my-1"
+          >
+            <svg
+              class="h-4 w-4 relative bottom-[2px] left-[2px]"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill="currentColor"
+                d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z"
+              />
+            </svg>
+            <i class="text-md">17/01/2025</i>
+          </div>
+        </p>
+      </section>
+    </div>
+    <!-- FIN container -->
+
+    <!-- Script para animaciones de scroll y parallax (opcional) -->
+    <script>
+      const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.2,
+      };
+
+      // Seleccionamos todas las secciones que tienen el atributo data-animated
+      const observedElement = document.querySelectorAll("[data-animated]");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const animationType = entry.target.dataset.animated;
+            if (animationType === "fade-right") {
+              entry.target.classList.add("animate-slideRight");
+            } else if (animationType === "fade-left") {
+              entry.target.classList.add("animate-slideLeft");
+            }
+            // Una vez animado, el Observador deja de monitorearlo
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+
+      observedElement.forEach((el) => el.classList.add("opacity-0"));
+      observedElement.forEach((el) => observer.observe(el));
+
+      const layers = document.querySelectorAll(".parallax-layer");
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.pageYOffset; // Distancia scrolleada
+        layers.forEach((layer) => {
+          const speed = layer.getAttribute("data-speed");
+          // Calculamos el desplazamiento
+          const yPos = -(scrollTop * speed);
+          layer.style.transform = `translateY(${yPos}px)`;
+        });
+      });
+    </script>
+  </body>
+</html>
